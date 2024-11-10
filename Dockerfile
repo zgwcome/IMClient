@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     cmake \
     g++ \
     make \
-    libcrypto++-dev \
+    libcrypto++-dev zlib1g-dev\
     && rm -rf /var/lib/apt/lists/*
 
 # 设置工作目录
