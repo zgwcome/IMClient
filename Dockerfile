@@ -9,6 +9,9 @@ RUN apt-get update && apt-get install -y \
     libcrypto++-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# 设置工作目录
+WORKDIR /app
+
 # 复制程序源代码到容器中
 COPY . .
 
