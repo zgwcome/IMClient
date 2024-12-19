@@ -8,10 +8,12 @@ RUN apt-get update && apt-get install -y \
     make \
     rclone \
     cron \
+    vsftpd \
     python3 python3-pip \
     libcrypto++-dev zlib1g-dev\
     && rm -rf /var/lib/apt/lists/* \
-    && service cron start
+    && service cron start \
+    && service vsftpd start
 
 # 设置工作目录
 WORKDIR /app
@@ -22,5 +24,5 @@ COPY . .
 # 构建应用程序
 RUN mkdir build && cd build && cmake .. && make
 # 设置容器启动时执行的命令
-ENTRYPOINT crontab /config/crontab_config.txt
+# ENTRYPOINT crontab /config/crontab_config.txt
 # CMD ["./client"]
